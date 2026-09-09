@@ -1,39 +1,62 @@
-# 🍽️ Zomato Clone
+# 🍽️ Zomato Frontend Clone
 
-A Zomato-inspired frontend clone built as part of my learning and assignment projects.
+A frontend clone of the Zomato website created as part of my frontend learning and assignment project.
 
-The purpose of this project is to practice recreating real-world website interfaces and improve my frontend development skills.
+The main goal of this project was to recreate different sections of the Zomato website and practice building a website layout using HTML and CSS.
+
+> ⚠️ This project is only a frontend clone created for educational purposes. It is not affiliated with or connected to Zomato.
 
 ## 🚀 What I Built
 
-* 🎥 Hero section with a background video
-* 📝 Text and content overlay
-* 🌑 Black gradient/shadow effect
-* 📱 Basic responsive layout
-* 🎨 Styled buttons and UI elements
+In this project, I recreated different parts of the Zomato website, including:
+
+- 🎥 Hero section with background video
+- 📝 Text and content overlays
+- 🍽️ App and food-related sections
+- 💛 Zomato Gold section
+- 🛵 Delivery and offer sections
+- 🖼️ Image-based content sections
+- 🎨 Buttons, cards, text and other UI elements
+- 📱 Basic responsive layout
+- 🌑 Dark sections with gradients and overlays
 
 ## 🛠️ Technologies Used
 
-* HTML5
-* CSS3
+- HTML5
+- CSS3
 
 ## 📚 What I Learned
 
-Through this project, I practiced:
+While working on this project, I learned and practiced:
 
-* CSS positioning
-* Flexbox
-* Responsive design
-* Video backgrounds
-* `object-fit`
-* Gradients and overlays
-* `z-index` and element layering
-* Debugging CSS layout issues
+- How to divide a webpage into different sections
+- CSS positioning and placing elements where I want them
+- Using `position: relative` and `position: absolute`
+- Flexbox for arranging elements
+- Working with images and background videos
+- Creating cards and different UI layouts
+- Using gradients and overlays
+- Managing `z-index` and layers
+- Using `border-radius` to create curved designs
+- Making layouts responsive
+- Organizing HTML and CSS
+- Debugging and fixing layout problems
+- Understanding how different sections of a real website are structured
 
 ## 🎯 Purpose
 
-This is an educational project created to practice frontend development by building clones of popular websites.
+The purpose of this project was to improve my frontend skills by recreating a real-world website interface.
+
+It helped me understand how a website can be broken down into smaller sections and how HTML and CSS can be used together to build each section.
+
+This project was mainly about learning through practice, trying different layouts, fixing mistakes, and improving the final design.
 
 > **Learning → Building → Debugging → Improving**
 
-⚠️ This project is for educational purposes only and is not affiliated with Zomato.
+## 📌 Note
+
+This project contains **only the frontend** of a Zomato-inspired website. No backend, database, login system, ordering system, or payment functionality has been implemented.
+
+Made for learning and practice. ❤️
+## Author
+Suhani Thakur
