@@ -53,7 +53,7 @@
     <!-- introduction scroll -->
     <!-- ===================== -->
 
-    <section>
+    <section class="food-section">
         <div class="main-container">
             <img src="public/leaf.avif" class="food" id="leaf">
             <img src="public/burger.avif" class="food" id="burger">
@@ -322,26 +322,57 @@
 
 
 <!-- ===============================
- MOBILE SECTION
- =============================== -->
+MOBILE SECTION
+=============================== -->
 
- <section>
+<section>
+
     <div class="download-section">
+
         <div class="download-container">
+
+
+            <!-- TEXT -->
             <div class="download-text-section">
-                <h1 class="download-head">Download the app now!</h1>
-                <h3 class="download-subHead">Experience seamless online ordering<br>only on the Zomato app</h3>
+
+                <h1 class="download-head">
+                    Download the app now!
+                </h1>
+
+                <h3 class="download-subHead">
+                    Experience seamless online ordering<br>
+                    only on the Zomato app
+                </h3>
+
             </div>
+
+
+            <!-- PHONE + QR COMPOSITION -->
             <div class="download-phone-section">
-                <img src="public/app-mobile.avif" class="mobile">
-                <div class="download-qr">
-                    <h3 class="QR-message">Scan the QR code to<br>download the app</h3>
-                    <img src="public/mobile-qr.avif" class="QR">
-                </div>
+
+                <img
+                    src="public/app-mobile.avif"
+                    class="mobile"
+                >
+
+                <h3 class="QR-message">
+                    Scan the QR code to<br>
+                    download the app
+                </h3>
+
+                <img
+                    src="public/mobile-qr.avif"
+                    class="QR"
+                >
+
             </div>
+
+
         </div>
+
     </div>
- </section>
+
+</section>
 
     <!-- WEBSITE FOOTER -->
      <footer>
@@ -387,4 +418,81 @@
      </footer>
 
 </body>
+
+<!-- Script for animation on scroll-->
+
+<script>
+
+const appSection = document.querySelector(".on-app-container");
+
+const phone = document.querySelector(".on-app-phone");
+
+const schedule = document.querySelector(".on-app-schedule");
+
+
+const observer = new IntersectionObserver(
+
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                phone.classList.add("phone-show");
+
+                schedule.classList.add("schedule-show");
+
+                /*
+                   Stop observing after animation
+                   starts so it happens only once.
+                */
+                observer.unobserve(appSection);
+            }
+
+        });
+
+    },
+
+    {
+        /*
+           Start when around 20% of the
+           section becomes visible.
+        */
+        threshold: 0.2
+    }
+
+);
+
+
+observer.observe(appSection);
+
+//Animaiton for Download section
+
+const downloadSection = document.querySelector(".download-section");
+const mobilePhone = document.querySelector(".download-phone-section");
+
+const downloadObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                mobilePhone.classList.add("download-phone-section-show");
+
+                // Animation happens only once
+                downloadObserver.unobserve(downloadSection);
+            }
+
+        });
+    },
+    {
+        threshold: 0.2
+    }
+);
+
+downloadObserver.observe(downloadSection);
+
+
+</script>
+
 </html>
