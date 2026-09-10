@@ -61,9 +61,11 @@ body {
 
     background: linear-gradient(
         to bottom,
+
         rgba(65, 43, 37,0) 0%,
-         rgba(27, 27, 27, 0.9)  100%
+        rgba(27, 27, 27, 0.9)  100%
        
+
     );
 
     pointer-events: none;
@@ -194,7 +196,11 @@ body {
 
 
 .apple {
+
+    height: 60px;
+
     height: 50px;
+
     width: 60px;
 
     display: inline;
@@ -246,10 +252,15 @@ body {
 
 .food {
     position: absolute;
-
     display: flex;
-
     z-index: 999;
+
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
 }
 
 
@@ -310,7 +321,7 @@ body {
 /* Pizza */
 
 #pizza {
-    top: 60%;
+    top: 55%;
     right: 11%;
 
     height: 240px;
@@ -324,8 +335,8 @@ body {
 
 #left-thread,
 #right-thread {
-    height: 95vh;
-    width: 100%;
+    height: 120vh;
+    width: 85%;
 
     position: absolute;
 
@@ -483,8 +494,6 @@ body {
         "Times New Roman",
         serif;
 }
-
-
 /* ===========================
 ON APP CONTAINER
 ============================== */
@@ -669,16 +678,47 @@ ON APP CONTAINER
 .on-app-phone {
     position: absolute;
 
+    /* FINAL POSITION */
     top: 270px;
-    left: 50%;
-
-    transform: translateX(-50%);
+    left: 49%;
 
     width: 300px;
     height: 420px;
 
     z-index: 2;
+
+    /*
+       Initial state:
+       phone is hidden below the section
+    */
+    transform: translate(-50%, 500px);
+
+    opacity: 0;
 }
+
+
+/* =========================================
+   PHONE ANIMATION
+========================================= */
+
+.on-app-phone.phone-show {
+    animation: phoneComeUp 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+
+@keyframes phoneComeUp {
+
+    from {
+        transform: translate(-50%, 500px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
 
 .on-app-phone img {
     display: block;
@@ -695,10 +735,11 @@ ON APP CONTAINER
 ========================================= */
 
 .on-app-schedule {
-    top: 386px;
-    left: 50%;
+    position: absolute;
 
-    transform: translateX(-50%);
+    /* FINAL POSITION */
+    top: 386px;
+    left: 49%;
 
     width: 146px;
     height: 163px;
@@ -706,7 +747,39 @@ ON APP CONTAINER
     border-radius: 17px;
 
     z-index: 10;
+
+    /*
+       Initial state:
+       schedule is below the section
+    */
+    transform: translate(-50%, 500px);
+
+    opacity: 0;
 }
+
+
+/* =========================================
+   SCHEDULE ANIMATION
+========================================= */
+
+.on-app-schedule.schedule-show {
+    animation: scheduleComeUp 1.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+
+@keyframes scheduleComeUp {
+
+    from {
+        transform: translate(-50%, 500px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
 
 .on-app-schedule img {
     width: 90px;
@@ -714,6 +787,7 @@ ON APP CONTAINER
 
     margin-top: 13px;
 }
+
 
 .on-app-schedule span {
     font-size: 16px;
@@ -1366,9 +1440,9 @@ ETERNAL SECTION
     display: flex;
     text-align: center;
     justify-content: center;
-    font-size: 28px;
+    font-size: 25px;
     color: #62625C;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     
 }
@@ -1392,7 +1466,12 @@ ETERNAL SECTION
     padding-bottom: 80px;
     border-radius: 25px;
     font-family: sans-serif;
+    transition: transform 0.3s;
+    left: 50px;
+}
 
+.card:hover{
+    transform: scale(1.1);
 }
 
 
@@ -1481,13 +1560,13 @@ ETERNAL SECTION
 DOWNLOAD MOBILE SECTION
 =================================== */
 
-.download-section{
+.download-section {
     height: 120vh;
     width: 100%;
     position: relative;
 }
 
-.download-container{
+.download-container {
     height: 80vh;
     width: 87%;
     background-color: pink;
@@ -1498,63 +1577,155 @@ DOWNLOAD MOBILE SECTION
     display: flex;
 
     border: 6px solid #FFEDEF;
-    background: linear-gradient(to top, #FFEEF0, #FFFFFF); 
+    background: linear-gradient(to top, #FFEEF0, #FFFFFF);
+
+    overflow: hidden;
 }
 
-.download-text-section{
+
+/* ==================================
+DOWNLOAD TEXT
+=================================== */
+
+.download-text-section {
     height: 400px;
     width: 600px;
+
     position: absolute;
     top: 40%;
     left: 80px;
+
     font-family: sans-serif;
-    flex: 1;
 }
 
-.download-head{
+.download-head {
     font-size: 40px;
 }
 
-.download-subHead{
+.download-subHead {
     color: #596378;
-    font-size: 30;
+    font-size: 15px;
 }
 
-.download-phone-section{
-    height: 60px;
-    width: 50px;
-    object-fit: contain;
-    margin-left: 50px;
-}
 
-.mobile{
-    height: 400px;
-    width: 470px;
-    position: relative;
-    top: 108px;
-    left: 1170%;
-}
+/* ==================================
+PHONE + QR WRAPPER
+=================================== */
 
-.QR-message{
-    height: 130px;
-    width: 300px;
+.download-phone-section {
     position: absolute;
-    top: 200px;
-    left: 61%;
+
+    /* Position the whole phone composition */
+    top: 107px;
+    left: 50%;
+
+    width: 470px;
+    height: 500px;
+
+    /* Animation starting position */
+    transform: translateY(500px);
+    opacity: 0;
+
+    z-index: 5;
+}
+
+
+/* ==================================
+PHONE
+=================================== */
+
+.mobile {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 490px;
+    height: 420px;
+
+    object-fit: contain;
+
+    z-index: 1;
+}
+
+
+/* ==================================
+QR MESSAGE
+=================================== */
+
+.QR-message {
+    position: absolute;
+
+    /*
+       Position relative to
+       download-phone-section
+    */
+    top: 110px;
+    left: 85px;
+
+    width: 300px;
+    height: auto;
+
+    margin: 0;
+
     font-size: 20px;
+    line-height: 1.4;
+
     color: #60697D;
+
     font-family: sans-serif;
     text-align: center;
+
+    z-index: 2;
 }
 
-.QR{
-    height: 200px;
-    width: 200px;
+
+/* ==================================
+QR CODE
+=================================== */
+
+.QR {
     position: absolute;
-    top: 280px;
-    left: 66%;
-    z-index: 6;
+
+    /*
+       Position relative to
+       download-phone-section
+    */
+    top: 180px;
+    left: 135px;
+
+    width: 200px;
+    height: 200px;
+
+    object-fit: contain;
+
+    z-index: 3;
 }
+
+
+/* ==================================
+SCROLL ANIMATION
+=================================== */
+
+.download-phone-section-show {
+    animation: download-phone-sectionMoveUp 1.2s ease-out forwards;
+}
+
+
+@keyframes download-phone-sectionMoveUp {
+
+    from {
+        transform: translateY(500px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
 
 
 
@@ -2173,5 +2344,4 @@ DOWNLOAD MOBILE SECTION
         grid-template-columns: 1fr;
     }
 }
-
 
